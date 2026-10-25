@@ -1,0 +1,58 @@
+{
+  "id": "E155",
+  "value": 7.422673117404362,
+  "method": "Independent Python Decimal at 1000 decimal digits; exp(-DeltaG/(R T)), dimensionless activity standard state.",
+  "cases": [
+    {
+      "name": "negative Gibbs gives K above one",
+      "values": {},
+      "expected": 7.422673117404362
+    },
+    {
+      "name": "zero Gibbs",
+      "values": {
+        "gibbs": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "name": "positive Gibbs",
+      "values": {
+        "gibbs": 10000,
+        "temperature": 500
+      },
+      "expected": 0.09022514685021799
+    },
+    {
+      "name": "reverse reaction",
+      "values": {
+        "gibbs": -10000,
+        "temperature": 500
+      },
+      "expected": 11.083384565281913
+    },
+    {
+      "name": "nonzero equilibrium underflow",
+      "values": {
+        "gibbs": 10000000.0,
+        "temperature": 1
+      },
+      "throws": true
+    },
+    {
+      "name": "equilibrium overflow",
+      "values": {
+        "gibbs": -10000000.0,
+        "temperature": 1
+      },
+      "throws": true
+    },
+    {
+      "name": "zero absolute temperature",
+      "values": {
+        "temperature": 0
+      },
+      "throws": true
+    }
+  ]
+}
